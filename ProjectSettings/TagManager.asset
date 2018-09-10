@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 1346774911
+    locked: 0
+  - name: Walker
+    uniqueID: 4268790941
+    locked: 0
