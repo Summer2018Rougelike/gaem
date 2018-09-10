@@ -1,1 +1,14 @@
-﻿using System.Collections; using System.Collections.Generic; using UnityEngine;  public class Movement : MonoBehaviour {      public float movementSpeed;     private Animator anim;    	// Use this for initialization 	void Start () {         anim = GetComponent<Animator>(); 		 	} 	 	// Update is called once per frame 	void Update () {         float moveHorizontal = Input.GetAxisRaw("Horizontal") * movementSpeed * Time.deltaTime;         float moveVertical = Input.GetAxisRaw("Vertical") * movementSpeed * Time.deltaTime;         transform.Translate(new Vector3(moveHorizontal, moveVertical));         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));      } } 
+﻿using System.Collections; using System.Collections.Generic; using UnityEngine;  public class Movement : MonoBehaviour {      public float movementSpeed;     private Animator anim;     private bool ismoving;     private Vector2 lastMove;             	// Use this for initialization 	void Start () {         anim = GetComponent<Animator>(); 		 	} 	 	// Update is called once per frame 	void Update () {          ismoving = false;         float moveHorizontal = Input.GetAxisRaw("Horizontal") * movementSpeed * Time.deltaTime;         float moveVertical = Input.GetAxisRaw("Vertical") * movementSpeed * Time.deltaTime;
+
+        if (moveHorizontal != 0)
+        {
+            ismoving = true;
+            lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
+        }         if(moveVertical != 0)
+        {
+
+            ismoving = true;
+            lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
+
+        }         transform.Translate(new Vector3(moveHorizontal, moveVertical));         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));         anim.SetBool("Moving" , ismoving);         anim.SetFloat("LastMoveX", lastMove.x);
+        anim.SetFloat("LastMoveY", lastMove.y);      } } 
