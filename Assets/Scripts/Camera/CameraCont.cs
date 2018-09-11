@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camer_Controller : MonoBehaviour {
+public class CameraCont : MonoBehaviour {
     public GameObject followTarget;
     private Vector3 targetPos;
     public float movespeed;
