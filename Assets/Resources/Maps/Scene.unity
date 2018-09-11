@@ -317,9 +317,9 @@ GameObject:
   - component: {fileID: 1129580147}
   - component: {fileID: 1129580148}
   - component: {fileID: 1129580150}
-  - component: {fileID: 1129580152}
   - component: {fileID: 1129580149}
   - component: {fileID: 1129580151}
+  - component: {fileID: 1129580152}
   m_Layer: 0
   m_Name: PlayerChar
   m_TagString: Player
@@ -487,6 +487,21 @@ MonoBehaviour:
   crt: 0
   tolevelup: 000000000a000000190000003c0000008c0000002c01000080020000dc050000a00f000010270000
   statpoints: 0
+--- !u!114 &1129580152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129580144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c01949e5f6b194bb9bb7c32329f8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHp: 0
+  maxHp: 0
+  playerStats: {fileID: 0}
+  enemyStats: {fileID: 0}
 --- !u!1001 &1518805882
 Prefab:
   m_ObjectHideFlags: 0
@@ -548,6 +563,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 286716ed8e16f784b863f9a3449b9493, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1614843358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1403416806456902, guid: b03394e62ed4f154bac03af6c52053d7,
+    type: 2}
+  m_PrefabInternal: {fileID: 498200149}
+--- !u!114 &1614843363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614843358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a860cc65cd0861944a45444eb18ca68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1940382517
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +661,7 @@ GameObject:
   - component: {fileID: 1994594268}
   - component: {fileID: 1994594271}
   - component: {fileID: 1994594272}
+  - component: {fileID: 1994594273}
   m_Layer: 0
   m_Name: Wilson
   m_TagString: Enemy
@@ -765,7 +797,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1994594265}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3c06a35b44247c48b106852239db9c2, type: 3}
   m_Name: 
@@ -781,10 +813,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994594265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3030c89a521edd544b4d5c82707ff3c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6adecddafbf3cd340982750b7e9374b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 700
+  str: 0
+  end: 10
+  agi: 0
+  lck: 0
+  curxp: 0
+  lvl: 0
+  dmg: 0
+  hp: 0
+  arm: 0
+  atk: 0
+  crt: 0
+  tolevelup: 050000000f000000000000000000000000000000
+  statpoints: 0
+  isCurrentEnemy: 0
+--- !u!114 &1994594273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1994594265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c01949e5f6b194bb9bb7c32329f8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHp: 0
+  maxHp: 0
+  playerStats: {fileID: 0}
+  enemyStats: {fileID: 0}
 --- !u!1 &2071698286
 GameObject:
   m_ObjectHideFlags: 0
