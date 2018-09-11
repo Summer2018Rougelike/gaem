@@ -23,6 +23,10 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+    }
+   void FixedUpdate()
+    {
+
         ismoving = false;
         float moveHorizontal = Input.GetAxisRaw("Horizontal") * movementSpeed * Time.deltaTime;
         float moveVertical = Input.GetAxisRaw("Vertical") * movementSpeed * Time.deltaTime;
@@ -32,7 +36,7 @@ public class Movement : MonoBehaviour {
             ismoving = true;
             lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
         }
-        if(moveVertical != 0)
+        if (moveVertical != 0)
         {
 
             ismoving = true;
@@ -43,7 +47,7 @@ public class Movement : MonoBehaviour {
         //transform.Translate(new Vector3(moveHorizontal, moveVertical));
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
-        anim.SetBool("Moving" , ismoving);
+        anim.SetBool("Moving", ismoving);
         anim.SetFloat("LastMoveX", lastMove.x);
         anim.SetFloat("LastMoveY", lastMove.y);
 
