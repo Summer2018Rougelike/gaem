@@ -11,13 +11,17 @@ public class PlayerStats : MonoBehaviour {
  // public int intl;
     public int agi;
     public int lck;
-    public int xp;
+    public int curxp;
     public int lvl;
     public int dmg;
     public int hp;
     public int arm;
     public int atk;
     public int crt;
+    private int xptolvlup;
+    public int[] tolevelup;
+    public int statpoints;
+
 
     // Use this for initialization
     void Start () {
@@ -27,10 +31,19 @@ public class PlayerStats : MonoBehaviour {
         atk = agi;
         crt = lck;
 
+
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (curxp >= tolevelup[lvl])
+        {
+
+            lvl++;
+            statpoints = statpoints + 5;
+
+
+        }
 		
 	}
 }
