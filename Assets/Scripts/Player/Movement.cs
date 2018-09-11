@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour {
     private Animator anim;
     private bool ismoving;
     private Vector2 lastMove;
+    private Rigidbody2D rigidBody;
         
 
 
@@ -15,6 +16,7 @@ public class Movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
 		
 	}
 	
@@ -37,7 +39,8 @@ public class Movement : MonoBehaviour {
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
 
         }
-        transform.Translate(new Vector3(moveHorizontal, moveVertical));
+        rigidBody.velocity = (new Vector2(moveHorizontal, moveVertical));
+        //transform.Translate(new Vector3(moveHorizontal, moveVertical));
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("Moving" , ismoving);
