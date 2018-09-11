@@ -13,6 +13,7 @@ public class AI : MonoBehaviour {
     public float FOV;
     private Vector2 diff;
     public int movSpeed;
+    public int range;
 
     // Use this for initialization
     void Start () {
@@ -27,7 +28,7 @@ public class AI : MonoBehaviour {
         diff = new Vector2(this.transform.position.x - objToFollow.transform.position.x, 
             this.transform.position.y - objToFollow.transform.position.y);
 
-        if (diff.magnitude < FOV) {
+        if (diff.magnitude <= FOV && diff.magnitude >= range) {
             state = State.FOLLOWING;
         }
 
