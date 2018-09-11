@@ -22,10 +22,11 @@ public class startpoint : MonoBehaviour {
             camera = FindObjectOfType<CameraCont>();
             camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
             player.lastMove = startDir;
+
+            player.transform.position = transform.position;
+            camera = FindObjectOfType<CameraCont>();
+            camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
         }
-        player.transform.position = transform.position;
-        camera = FindObjectOfType<CameraCont>();
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
         player.lastMove = startDir;
 
     }
