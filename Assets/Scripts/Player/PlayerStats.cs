@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour {
  // public int intl;
     public int agi;
     public int lck;
+    public int xp;
+    public int lvl;
 
 	// Use this for initialization
 	void Start () {
