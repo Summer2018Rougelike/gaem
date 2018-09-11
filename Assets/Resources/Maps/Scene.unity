@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 1129580149}
   m_Layer: 0
   m_Name: PlayerChar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -684,7 +684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c06a35b44247c48b106852239db9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objToFollow: {fileID: 1129580144}
   FOV: 10
   movSpeed: 2
   range: 0
