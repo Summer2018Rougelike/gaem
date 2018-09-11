@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour {
     private bool ismoving;
     private Vector2 lastMove;
     private Rigidbody2D rigidBody;
+    private static bool playerexists;
         
 
 
@@ -17,6 +18,19 @@ public class Movement : MonoBehaviour {
 	void Start () {
         anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
+
+        if (!playerexists)
+        {
+            playerexists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+
+            {
+
+            Destroy(gameObject);
+
+            }
 		
 	}
 	
