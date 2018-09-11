@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour {
+public class EnemyStats : MonoBehaviour {
 
     public int str;
  // public int per;
@@ -21,6 +21,7 @@ public class PlayerStats : MonoBehaviour {
     private int xptolvlup;
     public int[] tolevelup;
     public int statpoints;
+    public bool isCurrentEnemy;
 
     private void Awake() {
         dmg = str;
@@ -46,4 +47,8 @@ public class PlayerStats : MonoBehaviour {
         }
 		
 	}
+
+    public bool getIsCurrent() {
+        return isCurrentEnemy;
+    }
 }

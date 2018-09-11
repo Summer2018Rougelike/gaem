@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 1129580147}
   - component: {fileID: 1129580148}
   - component: {fileID: 1129580150}
+  - component: {fileID: 1129580152}
   - component: {fileID: 1129580149}
   - component: {fileID: 1129580151}
   m_Layer: 0
@@ -628,6 +629,7 @@ GameObject:
   - component: {fileID: 1994594266}
   - component: {fileID: 1994594268}
   - component: {fileID: 1994594271}
+  - component: {fileID: 1994594272}
   m_Layer: 0
   m_Name: Wilson
   m_TagString: Enemy
@@ -771,6 +773,18 @@ MonoBehaviour:
   FOV: 10
   movSpeed: 2
   range: 0
+--- !u!114 &1994594272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1994594265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3030c89a521edd544b4d5c82707ff3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 700
 --- !u!1 &2071698286
 GameObject:
   m_ObjectHideFlags: 0
