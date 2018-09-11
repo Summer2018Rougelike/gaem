@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class startpoint : MonoBehaviour {
-    private Movement player;
+    public Movement player;
     private CameraCont camera;
     public Vector2 startDir;
 
