@@ -46,7 +46,6 @@ public class AI : MonoBehaviour {
             float atan = Mathf.Atan2(diff.y, diff.x);
             float movY = Mathf.Sin(atan) * movSpeed;
             float movX = Mathf.Cos(atan) * movSpeed;
-            Debug.Log(movX + " ===== " + movY);
             lastMove = new Vector2(-movX, -movY);
             rb.velocity = lastMove;
             anim.SetFloat("MoveX", -movX);

@@ -9,11 +9,16 @@ namespace Assets.Scripts.Combat {
         private Stat statOfParent;
         private bool dead;
         public DamageReceiver() {
-            statOfParent = this.GetComponentInParent<CombatSystem>().GetComponent<Stat>();
+            CombatSystem comsys = this.GetComponentInParent<CombatSystem>();
+
+            statOfParent = comsys.getStat();
+
             dead = false;
         }
         public void receiveDamage(int damage) {
             if (!dead) {
+                if (statOfParent == null)
+                    Debug.Log("null geldi ya stat");
                 statOfParent.setCurrentHealth(statOfParent.getCurrentHealth() - damage);
                 if (statOfParent.getCurrentHealth() <= 0)
                     dead = true;

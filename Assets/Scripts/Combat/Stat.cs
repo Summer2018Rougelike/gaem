@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace Assets.Scripts.Combat {
 
-    class Stat : Component {
+    public class Stat : Component {
         [Header("Player Stats")]
         public int maxHealth;
 
 
         private int currentHealth;
 
-        Stat(int maxHealth) {
+        public Stat(int maxHealth) {
             this.maxHealth = maxHealth;
             currentHealth = maxHealth;
         }
