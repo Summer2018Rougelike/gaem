@@ -6,6 +6,8 @@ public class startpoint : MonoBehaviour {
     private Movement player;
     private CameraCont camera;
     public Vector2 startDir;
+    public string dirName;
+
 
 
 
@@ -13,10 +15,14 @@ public class startpoint : MonoBehaviour {
 	void Start () {
 
         player = FindObjectOfType<Movement>();
-        player.transform.position = transform.position;
-        camera = FindObjectOfType<CameraCont>();
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
-        player.lastMove = startDir;
+
+        if (player.startPoint == dirName)
+        {
+            player.transform.position = transform.position;
+            camera = FindObjectOfType<CameraCont>();
+            camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
+            player.lastMove = startDir;
+        }
 
     }
 	

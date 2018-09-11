@@ -9,7 +9,9 @@ public class Movement : MonoBehaviour {
     private bool ismoving;
     public Vector2 lastMove;
     private Rigidbody2D rigidBody;
+    public string startPoint;
     private static bool playerexists;
+   
         
 
 

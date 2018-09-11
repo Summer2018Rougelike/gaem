@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class teleport : MonoBehaviour {
 
     public string levelToLoad;
+    public string exitPoint;
+    private Movement player;
+
 
     // Use this for initialization
     void Start () {
-        
+
+        player = FindObjectOfType<Movement>();
+        player.startPoint = exitPoint;
 
 }
 	
