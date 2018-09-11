@@ -8,7 +8,7 @@ public class AI : MonoBehaviour {
     private Animator anim;
     private Rigidbody2D rb;
     private Rigidbody2D followRb;
-    public GameObject objToFollow;
+    private GameObject objToFollow;
     private State state;
     public float FOV;
     private Vector2 diff;
@@ -21,6 +21,7 @@ public class AI : MonoBehaviour {
     void Start () {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        objToFollow = GameObject.FindGameObjectWithTag("Player");
         followRb = objToFollow.GetComponent<Rigidbody2D>();
     }
 
