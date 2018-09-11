@@ -20,7 +20,6 @@ public class Movement : MonoBehaviour {
 	void Start () {
         anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
-        
 
         if (!playerexists)
         {

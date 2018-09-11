@@ -14,6 +14,8 @@ public class AI : MonoBehaviour {
     private Vector2 diff;
     public int movSpeed;
     public int range;
+    private Vector2 lastMove;
+
 
     // Use this for initialization
     void Start () {
@@ -44,13 +46,24 @@ public class AI : MonoBehaviour {
             float movY = Mathf.Sin(atan) * movSpeed;
             float movX = Mathf.Cos(atan) * movSpeed;
             Debug.Log(movX + " ===== " + movY);
-            rb.velocity = - new Vector2(movX, movY);
-
+            lastMove = new Vector2(-movX, -movY);
+            rb.velocity = lastMove;
+            anim.SetFloat("MoveX", -movX);
+            anim.SetFloat("MoveY", -movY);
+            anim.SetBool("Moving", true);
         }
 
         else {
             rb.velocity = Vector2.zero;
+            anim.SetBool("Moving", false);
+            anim.SetFloat("LastMoveX", lastMove.x);
+            anim.SetFloat("LastMoveY", lastMove.y);
+
         }
+
+
+
+
 
     }
 }
