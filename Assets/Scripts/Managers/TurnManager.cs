@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
-    GameObject player;
-    GameObject currentEnemy;
-    GameObject[] enemies;
     public enum BATTLESTATES {
         START,
         PLAYERTURN,
@@ -19,27 +16,21 @@ public class TurnManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         currentState = BATTLESTATES.START;
-        player = GameObject.FindGameObjectWithTag("Player");
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         
     }
 
     // Update is called once per frame
     void Update () {
-        Debug.Log(currentState);
         switch (currentState) {
             case BATTLESTATES.START:
                 break;
             case BATTLESTATES.PLAYERTURN:
-                for (int i = 0; i<enemies.Length; i++) {
-                    if (enemies[i].GetComponent<EnemyStats>().getIsCurrent()) {
-                        currentEnemy = enemies[i];
-                        break;
-                    }
-
-                }
-                if (currentEnemy)
-                    currentEnemy.GetComponent<HealthManager>().dealDamage(player.GetComponent<PlayerStats>().dmg);
+                Debug.Log(currentState);
+                GameManager.Instance.getEnemy().GetComponent<CharacterHolder>().getCharacter().receiveDamage(
+                    GameManager.Instance.getAttackingPlayer().GetComponent<CharacterHolder>().getCharacter().dmg
+                    );
+                if (GameManager.Instance.getEnemy().GetComponent<CharacterHolder>().getCharacter().hp <= 0)
+                    GameManager.Instance.getEnemy().SetActive(false);
                 changeTurn();
                 break;
             case BATTLESTATES.ENEMYTURN:
@@ -52,13 +43,7 @@ public class TurnManager : MonoBehaviour {
         }
     }
 
-    private void OnGUI() {
-        if (GUILayout.Button("NEXT STATE")) {
-            changeTurn();
-        }
-    }
-
-    private void changeTurn() {
+    public void changeTurn() {
         if (currentState == BATTLESTATES.START) {
             currentState = BATTLESTATES.PLAYERTURN;
         }
