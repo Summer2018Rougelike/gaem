@@ -48,14 +48,14 @@ public class GameManager : MonoBehaviour {
     public GameObject getAttackingPlayer() { return attackingPlayer; }
 
     private void OnGUI() {
-        if (GUILayout.Button("Create Enemy")) {
+       if (GUILayout.Button("Create Enemy")) {
             GameObject created = gameObject.GetComponent<CharacterManager>().createEnemy(BaseCharacter.Type.WARRIOR, "Test Enemy Wilson");
             Debug.Log("Created warrior character as enemy" + created);
         }
 
         if (GUILayout.Button("Create Player")) {
             GameObject created = gameObject.GetComponent<CharacterManager>().createPlayer(BaseCharacter.Type.MAGE, "Test Player Character");
-            Debug.Log("Created mage character as player" + created);
+           Debug.Log("Created mage character as player" + created);
         }
 
         if (GUILayout.Button("Change Turn")) {
