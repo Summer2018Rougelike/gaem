@@ -10,14 +10,18 @@ public class CombatMenu : MonoBehaviour {
     public void Attack()
 
     {
-        GameObject created = gameObject.GetComponent<CharacterManager>().createEnemy(BaseCharacter.Type.WARRIOR, "Test Enemy Wilson");
+        GameManager.Instance.getEnemy().GetComponent<CharacterHolder>().getCharacter().receiveDamage(
+        GameManager.Instance.getAttackingPlayer().GetComponent<CharacterHolder>().getCharacter().dmg
+    );
+        if (GameManager.Instance.getEnemy().GetComponent<CharacterHolder>().getCharacter().hp <= 0) {
+            GameObject.Destroy(GameManager.Instance.getEnemy());
+        }
 
     }
 
     public void Defend()
 
     {
-        GameObject created = gameObject.GetComponent<CharacterManager>().createPlayer(BaseCharacter.Type.MAGE, "Test Player Character");
 
     }
 

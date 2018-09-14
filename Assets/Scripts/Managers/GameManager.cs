@@ -27,7 +27,13 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        currentEnemy.AddComponent<CharacterHolder>();
+        currentEnemy.GetComponent<CharacterHolder>().assignCharacter(
+            GameManager.Instance.GetComponent<CharacterManager>().createEnemy(BaseCharacter.Type.WARRIOR, "Wilson"));
 
+        attackingPlayer.AddComponent<CharacterHolder>();
+        attackingPlayer.GetComponent<CharacterHolder>().assignCharacter(
+            GameManager.Instance.GetComponent<CharacterManager>().createPlayer(BaseCharacter.Type.WARRIOR, "Player"));
 	}
 	
 	// Update is called once per frame
@@ -46,21 +52,4 @@ public class GameManager : MonoBehaviour {
     } 
 
     public GameObject getAttackingPlayer() { return attackingPlayer; }
-
-    private void OnGUI() {
-       if (GUILayout.Button("Create Enemy")) {
-            GameObject created = gameObject.GetComponent<CharacterManager>().createEnemy(BaseCharacter.Type.WARRIOR, "Test Enemy Wilson");
-            Debug.Log("Created warrior character as enemy" + created);
-        }
-
-        if (GUILayout.Button("Create Player")) {
-            GameObject created = gameObject.GetComponent<CharacterManager>().createPlayer(BaseCharacter.Type.MAGE, "Test Player Character");
-           Debug.Log("Created mage character as player" + created);
-        }
-
-        if (GUILayout.Button("Change Turn")) {
-            gameObject.GetComponent<TurnManager>().changeTurn();
-
-        }
-    }
 }

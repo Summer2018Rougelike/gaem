@@ -25,16 +25,9 @@ public class TurnManager : MonoBehaviour {
             case BATTLESTATES.START:
                 break;
             case BATTLESTATES.PLAYERTURN:
-                Debug.Log(currentState);
-                GameManager.Instance.getEnemy().GetComponent<CharacterHolder>().getCharacter().receiveDamage(
-                    GameManager.Instance.getAttackingPlayer().GetComponent<CharacterHolder>().getCharacter().dmg
-                    );
-                if (GameManager.Instance.getEnemy().GetComponent<CharacterHolder>().getCharacter().hp <= 0)
-                    GameManager.Instance.getEnemy().SetActive(false);
-                changeTurn();
                 break;
             case BATTLESTATES.ENEMYTURN:
-                //changeTurn();
+                StartCoroutine("waitBeforeChangeTurn", 5);
                 break;
             case BATTLESTATES.WIN:
                 break;
@@ -44,6 +37,9 @@ public class TurnManager : MonoBehaviour {
     }
 
     public void changeTurn() {
+        Debug.Log(currentState);
+
+
         if (currentState == BATTLESTATES.START) {
             currentState = BATTLESTATES.PLAYERTURN;
         }
@@ -55,5 +51,12 @@ public class TurnManager : MonoBehaviour {
         else if (currentState == BATTLESTATES.ENEMYTURN) {
             currentState = BATTLESTATES.PLAYERTURN;
         }
+    }
+
+    public IEnumerator waitBeforeChangeTurn(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        changeTurn();
+        StopCoroutine("waitBeforeChangeTurn");
+        yield return null;
     }
 }

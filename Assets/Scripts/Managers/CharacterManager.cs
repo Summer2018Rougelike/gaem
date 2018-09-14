@@ -16,9 +16,9 @@ namespace character {
 	    }
 
 
-        public GameObject createPlayer(BaseCharacter.Type charType, string name) {
-            //GameObject createdPlayerObject = new GameObject(name);
-            GameObject createdPlayerObject = GameObject.FindGameObjectWithTag("Player");
+        public Player createPlayer(BaseCharacter.Type charType, string name) {
+            //GameObject createdPlayer = new GameObject(name);
+            //GameObject createdPlayerObject = GameObject.FindGameObjectWithTag("Player");
             Player createdPlayer = new Player(charType, name);
 
             createdPlayer.setLives(3);
@@ -42,15 +42,14 @@ namespace character {
                     break;
             }
 
-            createdPlayerObject.AddComponent<CharacterHolder>();
-            createdPlayerObject.GetComponent<CharacterHolder>().assignCharacter(createdPlayer);
 
-            return createdPlayerObject;
+
+            return createdPlayer;
         }
 
-        public GameObject createEnemy(BaseCharacter.Type charType, string name) {
-            //GameObject createdEnemyObject = new GameObject(name);
-            GameObject createdEnemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        public Enemy createEnemy(BaseCharacter.Type charType, string name) {
+            GameObject createdEnemyObject = new GameObject(name);
+            //GameObject createdEnemyObject = GameObject.FindGameObjectWithTag("Enemy");
             Enemy createdEnemy = new Enemy(charType, name);
 
             createdEnemy.setLootAmount(9);
@@ -74,10 +73,8 @@ namespace character {
                     break;
             }
             
-            createdEnemyObject.AddComponent<CharacterHolder>();
-            createdEnemyObject.GetComponent<CharacterHolder>().assignCharacter(createdEnemy);
-
-            return createdEnemyObject;
+        
+            return createdEnemy;
         }
     }
 }
