@@ -1,16 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class CombatTrigger : MonoBehaviour {
+public class CombatTrigger : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    Scene m_Scene;
+    string sceneName;
+    private Movement player;
+
+
+    private void FixedUpdate()
+    {
+        m_Scene = SceneManager.GetActiveScene();
+        sceneName = m_Scene.name;
+        player.startPoint = "CombatStart";
+    }
+
+    void OnCollisionEnter2D(Collision2D collisioninfo)
+    {
+
+        player = FindObjectOfType<Movement>();
+
+        if (collisioninfo.collider.tag == "Enemy")
+
+        {
+            if (sceneName  != "Combat")
+
+            {
+
+                SceneManager.LoadScene("Combat");
+
+                DontDestroyOnLoad(collisioninfo.gameObject);
+
+            }
+        }
+        
+    }
 }

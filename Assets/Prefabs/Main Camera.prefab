@@ -100,5 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54001d0e0a83024bb3595142f10320b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTarget: {fileID: 0}
+  followTarget: {fileID: 1130588158252712, guid: 6ed6fa5a77253754da5bc7ffa0f2f7e1,
+    type: 2}
   movespeed: 5
+  boundbox: {fileID: 0}

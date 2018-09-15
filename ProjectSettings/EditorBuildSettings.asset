@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maps/scene2.unity
     guid: ef6b5db7b8c7dca4bae229d38fe8fae8
+  - enabled: 1
+    path: Assets/Maps/Combat.unity
+    guid: 9f87cdf286eea404e96243cc1407dc14
   m_configObjects: {}

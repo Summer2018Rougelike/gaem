@@ -7,6 +7,7 @@ public class CameraCont : MonoBehaviour {
     private Vector3 targetPos;
     public float movespeed;
     private static bool cameraExists;
+    public GameObject bounds;
     public BoxCollider2D boundbox;
     private Vector3 minbounds;
     private Vector3 maxbounds;
@@ -16,6 +17,12 @@ public class CameraCont : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+       bounds = GameObject.FindGameObjectWithTag("Bounds");
+       boundbox = bounds.GetComponent<BoxCollider2D>();
+
+
+
 
         if (!cameraExists)
         {
