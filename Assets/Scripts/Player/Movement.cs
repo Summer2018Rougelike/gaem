@@ -11,13 +11,15 @@ public class Movement : MonoBehaviour {
     private Rigidbody2D rigidBody;
     public string startPoint;
     private static bool playerexists;
-   
-        
+    float moveHorizontal;
+    float moveVertical;
 
 
 
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
 
@@ -38,15 +40,8 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-    }
-   void FixedUpdate()
-    {
-
-        ismoving = false;
-        float moveHorizontal = Input.GetAxisRaw("Horizontal") * movementSpeed * Time.deltaTime;
-        float moveVertical = Input.GetAxisRaw("Vertical") * movementSpeed * Time.deltaTime;
-
+        moveHorizontal = Input.GetAxisRaw("Horizontal") * movementSpeed * Time.deltaTime;
+        moveVertical = Input.GetAxisRaw("Vertical") * movementSpeed * Time.deltaTime;
         if (moveHorizontal != 0)
         {
             ismoving = true;
@@ -59,13 +54,25 @@ public class Movement : MonoBehaviour {
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
 
         }
-        rigidBody.velocity = (new Vector2(moveHorizontal, moveVertical));
-        //transform.Translate(new Vector3(moveHorizontal, moveVertical));
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("Moving", ismoving);
         anim.SetFloat("LastMoveX", lastMove.x);
         anim.SetFloat("LastMoveY", lastMove.y);
+        ismoving = false;
+
+
+
+    }
+    void FixedUpdate()
+    {
+
+        
+
+
+
+        rigidBody.velocity = (new Vector2(moveHorizontal, moveVertical));
+        //transform.Translate(new Vector3(moveHorizontal, moveVertical));
 
     }
 }

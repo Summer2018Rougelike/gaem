@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CameraCont : MonoBehaviour {
     public GameObject followTarget;
@@ -18,8 +20,9 @@ public class CameraCont : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-       bounds = GameObject.FindGameObjectWithTag("Bounds");
-       boundbox = bounds.GetComponent<BoxCollider2D>();
+        SceneManager.activeSceneChanged += OnSceneChanged;
+        minbounds = boundbox.bounds.min;
+        maxbounds = boundbox.bounds.max;
 
 
 
@@ -36,8 +39,7 @@ public class CameraCont : MonoBehaviour {
             Destroy(gameObject);
 
             }
-        minbounds = boundbox.bounds.min;
-        maxbounds = boundbox.bounds.max;
+
         thecamera = GetComponent<Camera>();
         halfheight = thecamera.orthographicSize;
         halfwidth = halfheight * Screen.width / Screen.height;
@@ -52,8 +54,22 @@ public class CameraCont : MonoBehaviour {
         float clampedX = Mathf.Clamp(transform.position.x, minbounds.x + halfwidth, maxbounds.x - halfwidth);
         float clampedy = Mathf.Clamp(transform.position.y, minbounds.y + halfheight,maxbounds.y - halfheight);
         transform.position = new Vector3(clampedX, clampedy, transform.position.z);
-
+       
 
 
     }
-}
+
+
+    public void OnSceneChanged(Scene scene, Scene nextScene)
+    {
+
+        bounds = GameObject.FindGameObjectWithTag("Bounds");
+        boundbox = bounds.GetComponent<BoxCollider2D>();
+        minbounds = boundbox.bounds.min;
+        maxbounds = boundbox.bounds.max;
+
+
+    }
+
+}    
+

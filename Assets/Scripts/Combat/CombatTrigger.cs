@@ -15,7 +15,7 @@ public class CombatTrigger : MonoBehaviour
     {
         m_Scene = SceneManager.GetActiveScene();
         sceneName = m_Scene.name;
-        player.startPoint = "CombatStart";
+        
     }
 
     void OnCollisionEnter2D(Collision2D collisioninfo)
@@ -26,6 +26,7 @@ public class CombatTrigger : MonoBehaviour
         if (collisioninfo.collider.tag == "Enemy")
 
         {
+            player.startPoint = "CombatStart";
             if (sceneName  != "Combat")
 
             {
