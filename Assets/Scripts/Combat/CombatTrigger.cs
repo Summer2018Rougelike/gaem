@@ -30,10 +30,11 @@ public class CombatTrigger : MonoBehaviour
             if (sceneName  != "Combat")
 
             {
-
-                SceneManager.LoadScene("Combat");
-
                 DontDestroyOnLoad(collisioninfo.gameObject);
+                SceneManager.LoadScene("Combat");
+                collisioninfo.gameObject.transform.position = (player.transform.position + new Vector3(15, 15, 0));
+                
+
 
             }
         }

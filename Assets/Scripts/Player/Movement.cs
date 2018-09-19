@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour {
     private static bool playerexists;
     float moveHorizontal;
     float moveVertical;
+    private readonly float SQRTTWO = Mathf.Sqrt(2);
+
 
 
 
@@ -42,6 +44,8 @@ public class Movement : MonoBehaviour {
 	void Update () {
         moveHorizontal = Input.GetAxisRaw("Horizontal") * movementSpeed * Time.deltaTime;
         moveVertical = Input.GetAxisRaw("Vertical") * movementSpeed * Time.deltaTime;
+
+
         if (moveHorizontal != 0)
         {
             ismoving = true;
@@ -61,15 +65,14 @@ public class Movement : MonoBehaviour {
         anim.SetFloat("LastMoveY", lastMove.y);
         ismoving = false;
 
-
+        if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") != 0) {
+            moveVertical /= SQRTTWO;
+            moveHorizontal /= SQRTTWO;
+        }
 
     }
     void FixedUpdate()
     {
-
-        
-
-
 
         rigidBody.velocity = (new Vector2(moveHorizontal, moveVertical));
         //transform.Translate(new Vector3(moveHorizontal, moveVertical));

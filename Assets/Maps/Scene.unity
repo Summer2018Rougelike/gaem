@@ -172,6 +172,31 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 50609075689147824, guid: 6ed6fa5a77253754da5bc7ffa0f2f7e1,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50609075689147824, guid: 6ed6fa5a77253754da5bc7ffa0f2f7e1,
+        type: 2}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50609075689147824, guid: 6ed6fa5a77253754da5bc7ffa0f2f7e1,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: e0a9a1264b0e02a468f6685e745d8e52, type: 2}
+    - target: {fileID: 50609075689147824, guid: 6ed6fa5a77253754da5bc7ffa0f2f7e1,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50609075689147824, guid: 6ed6fa5a77253754da5bc7ffa0f2f7e1,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ed6fa5a77253754da5bc7ffa0f2f7e1, type: 2}
   m_IsPrefabAsset: 0
@@ -783,6 +808,21 @@ Prefab:
     - target: {fileID: 1927158080203372, guid: cdc227fd4b694654ea6c7a1bef619046, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631659397637766, guid: cdc227fd4b694654ea6c7a1bef619046,
+        type: 2}
+      propertyPath: movSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631659397637766, guid: cdc227fd4b694654ea6c7a1bef619046,
+        type: 2}
+      propertyPath: range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631659397637766, guid: cdc227fd4b694654ea6c7a1bef619046,
+        type: 2}
+      propertyPath: FOV
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdc227fd4b694654ea6c7a1bef619046, type: 2}
