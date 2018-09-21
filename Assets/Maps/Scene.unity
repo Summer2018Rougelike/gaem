@@ -594,6 +594,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23315140746906008, guid: 286716ed8e16f784b863f9a3449b9493,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 23315140746906008, guid: 286716ed8e16f784b863f9a3449b9493,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -26176355
+      objectReference: {fileID: 0}
+    - target: {fileID: 23315140746906008, guid: 286716ed8e16f784b863f9a3449b9493,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 286716ed8e16f784b863f9a3449b9493, type: 2}
   m_IsPrefabAsset: 0
